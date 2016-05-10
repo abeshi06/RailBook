@@ -63,6 +63,7 @@ class BooksController < ApplicationController
 
   def search
     @books = Book.where(title: params["search"]["title"])
+    @search_value = params["search"]["title"]
     render :index
   end
 

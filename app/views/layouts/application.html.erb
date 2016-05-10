@@ -7,6 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header>
+	<%= image_tag "railbook.PNG" %>
+	<ul>
+		<li><%= link_to "書籍一覧", books_path %></li>
+		<li><%= link_to "出版社一覧", publishes_path %></li>
+	</ul>
+</header>
 
 <%= yield %>
 
