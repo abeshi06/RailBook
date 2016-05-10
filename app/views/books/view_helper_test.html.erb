@@ -1,0 +1,38 @@
+<p>
+	<strong>テキストフィールド</strong>
+	<%= text_field :text, :area %>
+</p>
+<p>
+	<strong>ナンバーフィールド</strong>
+	<%= number_field :number, :field %>
+</p>
+<p>
+	<strong>テキストエリア</strong>
+	<%= text_area :text, :area %>
+</p>
+<p>
+	<strong>チェックボックス</strong>
+	<%= check_box :check, :box, {}, 0, 1 %>
+</p>
+<p>
+	<strong>ラジオボタン</strong>
+	<%= radio_button :radio, :button, "red" %>赤
+	<%= radio_button :radio, :button, "blue" %>青
+	<%= radio_button :radio, :button, "green" %>緑
+</p>
+<p>
+	<strong>セレクト</strong>
+	<%= select :address, :select, ["出雲市", "松江市", "雲南市"] %>
+</p>
+<p>
+	<strong>コレクションセレクト</strong>
+	<%= collection_select :collection, :select, Book.all, :id, :title %>
+</p>
+<p>
+	<strong>リンク</strong>
+	<%= link_to "Google", "https://www.google.co.jp" %>
+</p>
+<p>
+	<strong>イメージ</strong>
+	<%= image_tag "railbook.PNG" %>
+</p>
