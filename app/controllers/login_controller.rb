@@ -1,6 +1,8 @@
 class LoginController < ApplicationController
   skip_before_action :check_logined
   def index
+    # セッションの初期化
+    reset_session
   end
 
   def auth
@@ -12,7 +14,9 @@ class LoginController < ApplicationController
   	  # セッションの初期化
   	  reset_session
   	  # セッションに対象のユーザーのIDを保存
-  	  session[:usr] = usr.id
+      session[:usr] = usr.id
+      # セッションに対象のユーザー名を保存
+  	  session[:usrname] = usr.username
   	  # 指定のリダイレクト先へ移動
   	  redirect_to params[:referer]
   	else

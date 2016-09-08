@@ -8,13 +8,18 @@
 </head>
 <body>
 <header>
-	<%= image_tag "railbook.PNG" %>
-	<ul>
-		<li><%= link_to "書籍一覧", books_path %></li>
-		<li><%= link_to "出版社一覧", publishes_path %></li>
-		<li><%= link_to "レビュー一覧", reviews_path %></li>
-		<li><%= link_to "ユーザー一覧", users_path %></li>
-	</ul>
+	<% if session[:usr] %>
+		<div align="right">
+			ログインユーザー:<%= session[:usrname] %> | <%= link_to 'ログアウト', login_index_path %>
+		</div>
+		<%= image_tag "railbook.PNG" %>
+		<ul>
+			<li><%= link_to "書籍一覧", books_path %></li>
+			<li><%= link_to "出版社一覧", publishes_path %></li>
+			<li><%= link_to "レビュー一覧", reviews_path %></li>
+			<li><%= link_to "ユーザー一覧", users_path %></li>
+		</ul>
+	<% end %>
 </header>
 
 <%= yield %>
