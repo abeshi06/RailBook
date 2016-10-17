@@ -7,22 +7,33 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<header>
+<nav class="navbar navbar-inverse">
 	<% if session[:usr] %>
-		<div align="right">
-			ログインユーザー:<%= session[:usrname] %> | <%= link_to 'ログアウト', login_index_path %>
-		</div>
-		<%= image_tag "railbook.PNG" %>
-		<ul>
+		<ul class="nav navbar-nav">
+			<%= image_tag "railbook.PNG" %>
+		</ul>
+		<ul class="nav navbar-nav">
 			<li><%= link_to "書籍一覧", books_path %></li>
 			<li><%= link_to "出版社一覧", publishes_path %></li>
 			<li><%= link_to "レビュー一覧", reviews_path %></li>
 			<li><%= link_to "ユーザー一覧", users_path %></li>
 		</ul>
+        <ul class="nav navbar-nav navbar-right">
+			<li class="navbar-text">ログインユーザー:<%= session[:usrname] %></li>
+			<li><%= link_to 'ログアウト', login_index_path %></li>
+		</ul>
 	<% end %>
-</header>
+</nav>
+
 <div class="container">
 	<%= yield %>
 </div>
+<br/><br/>
+
+<nav class="navbar navbar-inverse">
+    <ul class="nav navbar-nav">
+		<li class="navbar-text">IZUSYO</li>
+	</ul>
+</nav>
 </body>
 </html>
