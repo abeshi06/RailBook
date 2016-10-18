@@ -5,23 +5,31 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width">
 </head>
 <body>
 <nav class="navbar navbar-inverse">
 	<% if session[:usr] %>
-		<ul class="nav navbar-nav">
-			<%= image_tag "railbook.PNG" %>
-		</ul>
-		<ul class="nav navbar-nav">
-			<li><%= link_to "書籍一覧", books_path %></li>
-			<li><%= link_to "出版社一覧", publishes_path %></li>
-			<li><%= link_to "レビュー一覧", reviews_path %></li>
-			<li><%= link_to "ユーザー一覧", users_path %></li>
-		</ul>
-        <ul class="nav navbar-nav navbar-right">
-			<li class="navbar-text">ログインユーザー:<%= session[:usrname] %></li>
-			<li><%= link_to 'ログアウト', login_index_path %></li>
-		</ul>
+		<div class="navbar-header">
+			<%= image_tag "railbook.PNG", class: "navbar-brand" %>
+	        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-nav">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	        </button>
+		</div>
+		<div class="collapse navbar-collapse" id="top-nav">
+			<ul class="nav navbar-nav">
+				<li><%= link_to "書籍一覧", books_path %></li>
+				<li><%= link_to "出版社一覧", publishes_path %></li>
+				<li><%= link_to "レビュー一覧", reviews_path %></li>
+				<li><%= link_to "ユーザー一覧", users_path %></li>
+			</ul>
+	        <ul class="nav navbar-nav navbar-right">
+				<li class="navbar-text">ログインユーザー:<%= session[:usrname] %></li>
+				<li><%= link_to 'ログアウト', login_index_path %></li>
+			</ul>
+		</div>
 	<% end %>
 </nav>
 
@@ -31,9 +39,6 @@
 <br/><br/>
 
 <nav class="navbar navbar-inverse">
-    <ul class="nav navbar-nav">
-		<li class="navbar-text">IZUSYO</li>
-	</ul>
 </nav>
 </body>
 </html>
